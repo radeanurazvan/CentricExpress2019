@@ -1,0 +1,25 @@
+﻿@using CentricExpress.Presentation.Models
+@model List<CentricExpress.Presentation.Models.Superhero>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <div>
+        <ul>
+            @foreach (var superhero in Model)
+            {
+                <li>@superhero.Name has @superhero.Age years and his superpower is represented by @superhero.Superpower.Name which has a combat power of @superhero.Superpower.CombatPower</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>
