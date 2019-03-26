@@ -1,0 +1,32 @@
+﻿@using CentricExpress.Presentation.Models
+@model List<Superhero>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <div>
+        <ul>
+            @foreach (var superhero in Model)
+            {
+                <li>@superhero.Name has superpower: <strong>@superhero.Superpower</strong> which has a combat power of <strong>@superhero.CombatPower</strong></li>
+            }
+        </ul>
+    </div>
+
+    <br />
+    <br />
+
+    <div>
+        <a asp-action="Add">Add</a>
+    </div>
+</body>
+</html>
