@@ -9,10 +9,11 @@ namespace CentricExpress.Api.Controllers
     [Route("v1/superheroes")]
     public class SuperheroesController : Controller
     {
-        private readonly SuperheroBusiness _business;
-        public SuperheroesController()
+        private readonly ISuperheroBusiness _business;
+
+        public SuperheroesController(ISuperheroBusiness superheroBusiness)
         {
-            _business = new SuperheroBusiness();
+            _business = superheroBusiness;
         }
 
         [HttpGet("")]
@@ -34,6 +35,7 @@ namespace CentricExpress.Api.Controllers
             }
 
             _business.Add(model);
+
             return Ok();
         }
     }

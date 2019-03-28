@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CentricExpress.Business;
+using CentricExpress.Business.Models;
+using CentricExpress.Data;
+using CentricExpress.Data.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace CentricExpress.Api
@@ -30,6 +33,9 @@ namespace CentricExpress.Api
             {
                 c.SwaggerDoc("v1", new Info { Title = "Centric Express", Version = "v1" });
             });
+
+            services.AddScoped<ISuperheroBusiness, SuperheroBusiness>();
+            services.AddScoped<IDatabase, Database>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

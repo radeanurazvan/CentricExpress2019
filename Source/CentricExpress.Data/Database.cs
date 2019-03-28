@@ -1,34 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CentricExpress.Data.Entities;
 
 namespace CentricExpress.Data
 {
-    public static class Database
+    public class Database : IDatabase
     {
-        public static readonly List<Superhero> Superheroes = new List<Superhero>
+        private static readonly List<Superhero> Superheroes = new List<Superhero>
         {
-            new Superhero
-            {
-                Id = Guid.NewGuid(),
-                Name = "Thor",
-                Superpower = "He is a god",
-                CombatPower = 20
-            },
-            new Superhero
-            {
-                Id = Guid.NewGuid(),
-                Name = "Superman",
-                Superpower = "He can fly",
-                CombatPower = 30
-            },
-            new Superhero
-            {
-                Id = Guid.NewGuid(),
-                Name = "Captain Marvel",
-                Superpower = "Telekinesis",
-                CombatPower = 112
-            }
+            new Superhero("Thor", "He is a god", 20),
+            new Superhero("Superman","He can fly", 30),
+            new Superhero("Captain Marvel", "Telekinesis", 112)
         };
+
+        public ICollection<Superhero> SuperheroesList => Superheroes;
     }
 }

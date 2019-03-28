@@ -1,38 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using CentricExpress.Business.Models;
-using CentricExpress.Data;
 using CentricExpress.Data.Entities;
 
 namespace CentricExpress.Business
 {
-    public class SuperheroBusiness
+    public class SuperheroBusiness : ISuperheroBusiness
     {
+        private readonly IDatabase database;
+
+        public SuperheroBusiness(IDatabase database)
+        {
+            this.database = database;
+        }
+
         public IReadOnlyCollection<SuperheroModel> Get()
         {
-            return Database.Superheroes
+            return database.SuperheroesList
                 .Select(h => new SuperheroModel
                 {
                     Id = h.Id,
                     CombatPower = h.CombatPower,
                     Name = h.Name,
                     Superpower = h.Superpower
-                }).ToList()
-                .AsReadOnly();
+                }).ToList().AsReadOnly();
         }
 
         public void Add(SuperheroModel model)
         {
-            var superhero = new Superhero
-            {
-                Id = Guid.NewGuid(),
-                Name = model.Name,
-                CombatPower = model.CombatPower,
-                Superpower = model.Superpower
-            };
+            var superhero = new Superhero(
+                model.Name, 
+                model.Superpower, 
+                model.CombatPower);
 
-            Database.Superheroes.Add(superhero);
+            database.SuperheroesList.Add(superhero);
         }
     }
 }

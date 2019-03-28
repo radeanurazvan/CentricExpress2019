@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CentricExpress.Presentation.Models;
@@ -19,7 +18,7 @@ namespace CentricExpress.Presentation.Controllers
         {
             var superheroes = new List<Superhero>();
 
-            var response = await _client.GetAsync("http://localhost:38567/v1/superheroes");
+            var response = await _client.GetAsync("http://localhost:54090/v1/superheroes");
             if (response.IsSuccessStatusCode)
             {
                 superheroes = await response.Content.ReadAsAsync<List<Superhero>>();
@@ -36,7 +35,7 @@ namespace CentricExpress.Presentation.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Superhero model)
         {
-            var response = await _client.PostAsJsonAsync("http://localhost:38567/v1/superheroes/create", model);
+            var response = await _client.PostAsJsonAsync("http://localhost:54090/v1/superheroes/create", model);
             response.EnsureSuccessStatusCode();
 
             return RedirectToAction("Index");

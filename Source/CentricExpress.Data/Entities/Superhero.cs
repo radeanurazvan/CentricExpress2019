@@ -4,12 +4,21 @@ namespace CentricExpress.Data.Entities
 {
     public class Superhero
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public string Superpower { get; set; }
+        public string Superpower { get; private set; }
 
-        public int CombatPower { get; set; }
+        public int CombatPower { get; private set; }
+
+        public Superhero(string name, string superpower, int combatPower)
+        {
+            Id = new Guid();
+
+            Name = name;
+            Superpower = superpower;
+            CombatPower = combatPower;
+        }
     }
 }
