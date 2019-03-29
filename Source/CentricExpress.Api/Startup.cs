@@ -37,10 +37,11 @@ namespace CentricExpress.Api
             });
 
             services.AddEntityFrameworkSqlServer()
-                .AddDbContext<SuperheroesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SuperheroesConn")));
+                .AddDbContext<SuperheroesContext>(options => 
+                    options.UseSqlServer(Configuration.GetConnectionString("SuperheroesConn")));
 
             services.AddScoped<ISuperheroBusiness, SuperheroBusiness>();
-            services.AddScoped<IDatabase, Database>();
+            services.AddScoped<IDatabase, EntityFrameworkDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

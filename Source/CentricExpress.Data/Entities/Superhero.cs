@@ -14,7 +14,7 @@ namespace CentricExpress.Data.Entities
 
         public Superhero(string name, string superpower, int combatPower)
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
 
             Name = name;
             Superpower = superpower;
