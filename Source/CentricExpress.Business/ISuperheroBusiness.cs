@@ -7,6 +7,8 @@ namespace CentricExpress.Business
     {
         IReadOnlyCollection<SuperheroModel> Get();
 
+        SuperheroModel FindByName(string name);
+
         void Add(SuperheroModel model);
     }
 }

@@ -24,6 +24,13 @@ namespace CentricExpress.Api.Controllers
             return Ok(models);
         }
 
+        [HttpGet("findByName")]
+        [ProducesResponseType(typeof(SuperheroModel), StatusCodes.Status200OK)]
+        public IActionResult FindByName([FromQuery] string name)
+        {
+            return this.Ok(_business.FindByName(name));
+        }
+
         [HttpPost("create")]
         [ProducesResponseType(typeof(SuperheroModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
