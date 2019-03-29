@@ -9,8 +9,7 @@ namespace CentricExpress.Data.EntityFramework
     {
         public void Configure(EntityTypeBuilder<Superhero> builder)
         {
-            builder.HasKey(hero => hero.Id);
-           
+            builder.HasKey(h => h.Id);
         }
     }
 }

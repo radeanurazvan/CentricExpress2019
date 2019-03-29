@@ -25,6 +25,23 @@ namespace CentricExpress.Business
                     Superpower = h.Superpower
                 }).ToList().AsReadOnly();
         }
+        
+        public SuperheroModel FindByName(string name)
+        {
+            var superhero = this.database.SuperheroesList.FirstOrDefault(h => h.Name == name);
+            if (superhero == null)
+            {
+                return null;
+            }
+
+            return new SuperheroModel
+            {
+                Id = superhero.Id,
+                CombatPower = superhero.CombatPower,
+                Name = superhero.Name,
+                Superpower = superhero.Superpower
+            };
+        }
 
         public void Add(SuperheroModel model)
         {

@@ -11,5 +11,10 @@ namespace CentricExpress.Data.EntityFramework
         }
 
         public DbSet<Superhero> Superheros { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new SuperheroConfiguration());
+        }
     }
 }
