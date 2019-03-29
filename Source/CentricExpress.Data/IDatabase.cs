@@ -7,7 +7,5 @@ namespace CentricExpress.Data.Entities
         IQueryable<Superhero> SuperheroesList { get; }
 
         void Add(Superhero superhero);
-
-        void CommitChanges();
     }
 }
