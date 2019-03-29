@@ -1,22 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CentricExpress.Business.Models;
+using CentricExpress.Data;
 using CentricExpress.Data.Entities;
 
 namespace CentricExpress.Business
 {
     public class SuperheroBusiness : ISuperheroBusiness
     {
-        private readonly IDatabase database;
+        private readonly ISuperheroRepository repository;
 
-        public SuperheroBusiness(IDatabase database)
+        public SuperheroBusiness(ISuperheroRepository repository)
         {
-            this.database = database;
+            this.repository = repository;
         }
 
         public IReadOnlyCollection<SuperheroModel> Get()
         {
-            return database.SuperheroesList
+            return repository.GetAll()
                 .Select(h => new SuperheroModel
                 {
                     Id = h.Id,
@@ -28,7 +29,7 @@ namespace CentricExpress.Business
         
         public SuperheroModel FindByName(string name)
         {
-            var superhero = this.database.SuperheroesList.FirstOrDefault(h => h.Name == name);
+            var superhero = this.repository.GetAll().FirstOrDefault(h => h.Name == name);
             if (superhero == null)
             {
                 return null;
@@ -50,8 +51,8 @@ namespace CentricExpress.Business
                 model.Superpower, 
                 model.CombatPower);
 
-            database.Add(superhero);
-            database.CommitChanges();
+            repository.Add(superhero);
+            repository.CommitChanges();
         }
     }
 }

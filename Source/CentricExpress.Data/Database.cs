@@ -19,9 +19,5 @@ namespace CentricExpress.Data
         {
             Superheroes.Add(superhero);
         }
-
-        public void CommitChanges()
-        {
-        }
     }
 }
