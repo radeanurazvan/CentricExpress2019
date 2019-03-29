@@ -33,7 +33,8 @@ namespace CentricExpress.Business
                 model.Superpower, 
                 model.CombatPower);
 
-            database.SuperheroesList.Add(superhero);
+            database.Add(superhero);
+            database.CommitChanges();
         }
     }
 }

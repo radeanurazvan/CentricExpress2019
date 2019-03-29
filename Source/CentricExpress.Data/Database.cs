@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CentricExpress.Data.Entities;
 
 namespace CentricExpress.Data
@@ -12,6 +13,15 @@ namespace CentricExpress.Data
             new Superhero("Captain Marvel", "Telekinesis", 112)
         };
 
-        public ICollection<Superhero> SuperheroesList => Superheroes;
+        public IQueryable<Superhero> SuperheroesList => Superheroes.AsQueryable();
+
+        public void Add(Superhero superhero)
+        {
+            Superheroes.Add(superhero);
+        }
+
+        public void CommitChanges()
+        {
+        }
     }
 }

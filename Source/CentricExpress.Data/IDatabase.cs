@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 
 namespace CentricExpress.Data.Entities
 {
     public interface IDatabase
     {
-        ICollection<Superhero> SuperheroesList { get; }
+        IQueryable<Superhero> SuperheroesList { get; }
+
+        void Add(Superhero superhero);
+
+        void CommitChanges();
     }
 }

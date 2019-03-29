@@ -6,9 +6,11 @@ using CentricExpress.Business;
 using CentricExpress.Business.Models;
 using CentricExpress.Data;
 using CentricExpress.Data.Entities;
+using CentricExpress.Data.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -33,6 +35,9 @@ namespace CentricExpress.Api
             {
                 c.SwaggerDoc("v1", new Info { Title = "Centric Express", Version = "v1" });
             });
+
+            services.AddEntityFrameworkSqlServer()
+                .AddDbContext<SuperheroesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SuperheroesConn")));
 
             services.AddScoped<ISuperheroBusiness, SuperheroBusiness>();
             services.AddScoped<IDatabase, Database>();
