@@ -2,13 +2,11 @@
 
 namespace CentricExpress.Presentation.Models
 {
-    public class Superhero
+    public class Superpower
     {
-        public Guid? Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
-
-        public string Superpower { get; set; }
 
         public int CombatPower { get; set; }
     }

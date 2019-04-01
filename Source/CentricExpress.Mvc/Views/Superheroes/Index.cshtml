@@ -1,5 +1,5 @@
 ﻿@using CentricExpress.Presentation.Models
-@model List<Superhero>
+@model List<CentricExpress.Presentation.Models.Superhero>
 @{
     Layout = null;
 }
@@ -17,16 +17,9 @@
         <ul>
             @foreach (var superhero in Model)
             {
-                <li>@superhero.Name has superpower: <strong>@superhero.Superpower</strong> which has a combat power of <strong>@superhero.CombatPower</strong></li>
+                <li>@superhero.Name has @superhero.Age years and his superpower is represented by @superhero.Superpower.Name which has a combat power of @superhero.Superpower.CombatPower</li>
             }
         </ul>
-    </div>
-
-    <br />
-    <br />
-
-    <div>
-        <a asp-action="Add">Add</a>
     </div>
 </body>
 </html>

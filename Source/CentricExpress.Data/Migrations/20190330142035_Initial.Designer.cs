@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CentricExpress.Data.Migrations
 {
     [DbContext(typeof(SuperheroesContext))]
-    [Migration("20190329081957_Initial")]
+    [Migration("20190330142035_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace CentricExpress.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Superheros");
+                    b.ToTable("Superheroes");
                 });
 #pragma warning restore 612, 618
         }

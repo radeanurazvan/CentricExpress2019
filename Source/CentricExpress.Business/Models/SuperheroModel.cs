@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace CentricExpress.Business.Models
+namespace CentricExpress.Api.Models
 {
     public class SuperheroModel
     {
-        public Guid? Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
 

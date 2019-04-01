@@ -8,7 +8,7 @@ namespace CentricExpress.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Superheros",
+                name: "Superheroes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -18,14 +18,14 @@ namespace CentricExpress.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Superheros", x => x.Id);
+                    table.PrimaryKey("PK_Superheroes", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Superheros");
+                name: "Superheroes");
         }
     }
 }

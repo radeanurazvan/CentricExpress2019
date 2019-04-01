@@ -1,16 +1,19 @@
-﻿using CentricExpress.Data.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using CentricExpress.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CentricExpress.Data.EntityFramework
 {
-    public sealed class SuperheroesContext : DbContext
+    public class SuperheroesContext : DbContext
     {
-        public SuperheroesContext(DbContextOptions<SuperheroesContext> options) 
+        public SuperheroesContext(DbContextOptions options)
             : base(options)
         {
         }
 
-        public DbSet<Superhero> Superheros { get; set; }
+        public DbSet<Superhero> Superheroes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

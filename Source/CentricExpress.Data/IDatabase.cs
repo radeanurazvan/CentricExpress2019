@@ -1,11 +1,18 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using CentricExpress.Data.Entities;
 
-namespace CentricExpress.Data.Entities
+namespace CentricExpress.Data
 {
     public interface IDatabase
     {
-        IQueryable<Superhero> SuperheroesList { get; }
+        List<Superhero> List { get; }
 
-        void Add(Superhero superhero);
+        void Add(Superhero hero);
+
+        Superhero Find(Guid id);
+
+        void Save();
     }
 }

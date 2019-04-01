@@ -32,7 +32,7 @@ namespace CentricExpress.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Superheros");
+                    b.ToTable("Superheroes");
                 });
 #pragma warning restore 612, 618
         }
